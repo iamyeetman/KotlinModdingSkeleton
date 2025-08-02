@@ -1,6 +1,7 @@
 package example.examplemod
 
 import example.examplemod.block.ModBlocks
+import example.examplemod.item.ModItems
 import net.minecraft.client.Minecraft
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
@@ -18,9 +19,9 @@ import thedarkcolour.kotlinforforge.forge.runForDist
  *
  * An example for blocks is in the `blocks` package of this mod.
  */
-@Mod(ExampleMod.ID)
-object ExampleMod {
-    const val ID = "examplemod"
+@Mod(WineAndBEER.ID)
+object WineAndBEER {
+    const val ID = "wineandbeer"
 
     // the logger for our mod
     val LOGGER: Logger = LogManager.getLogger(ID)
@@ -30,7 +31,7 @@ object ExampleMod {
 
         // Register the KDeferredRegister to the mod-specific event bus
         ModBlocks.REGISTRY.register(MOD_BUS)
-
+        ModItems.REGISTRY.register(MOD_BUS)
         val obj = runForDist(
             clientTarget = {
                 MOD_BUS.addListener(::onClientSetup)
@@ -43,6 +44,7 @@ object ExampleMod {
 
         println(obj)
     }
+
 
     /**
      * This is used for initializing client specific
